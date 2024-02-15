@@ -12,7 +12,7 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-  serverSocket.listen()
+  serverSocket.listen(1)
   #Fill in end
 
   while True:
@@ -30,7 +30,7 @@ def webServer(port=13331):
       
       message = connectionSocket.recv(1024).decode()
       
-      # #Fill in end 
+      #Fill in end 
       
       filename = message.split()[1]
       
@@ -64,7 +64,7 @@ def webServer(port=13331):
       #Send the content of the requested file to the client (don't forget the headers you created)!
       # Fill in start
 
-        connectionSocket.sendall(outputdata)
+        connectionSocket.sendall(outputdata.encode())
 
       # Fill in end
         
