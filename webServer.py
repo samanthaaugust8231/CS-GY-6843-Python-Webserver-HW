@@ -48,7 +48,7 @@ def webServer(port=13331):
       #Fill in start 
               
       #Content-Type is an example on how to send a header as bytes. There are more!
-      outputdata = b"HTTP/1.1 200 ok\r\nServer: Apache\r\n Content-Type: text/html; charset=UTF-8\r\nKeep-Alive: timeout=5, max=1000\r\nConnection: Keep-Alive\r\n\r\n"
+      outputdata = b"HTTP/1.1 200 OK\r\nServer: Apache\r\n Content-Type: text/html; charset=UTF-8\r\nKeep-Alive: timeout=5, max=1000\r\nConnection: Keep-Alive\r\n\r\n"
 
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
@@ -57,14 +57,14 @@ def webServer(port=13331):
                
       for i in file_1: #for line in file
       #Fill in start - append your html file contents 
-        html_data += i
+        outputdata += i
       
       #Fill in end 
         
       #Send the content of the requested file to the client (don't forget the headers you created)!
       # Fill in start
 
-      connectionSocket.sendall(outputdata + html_data)
+      connectionSocket.sendall(outputdata)
 
       # Fill in end
         
