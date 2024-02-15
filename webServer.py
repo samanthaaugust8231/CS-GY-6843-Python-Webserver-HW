@@ -12,7 +12,7 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-  serverSocket.listen(2)
+  serverSocket.listen()
   #Fill in end
 
   while True:
@@ -29,7 +29,7 @@ def webServer(port=13331):
     try:
       #Fill in start -a client is sending you a message   
       
-      message = connectionSocket.recv(1024)
+      message = connectionSocket.recv(1024).decode()
       
       #Fill in end 
       
@@ -39,9 +39,8 @@ def webServer(port=13331):
       #Plenty of guidance online on how to open and read a file in python. How should you read it though if you plan on sending it through a socket?
       #fill in start 
       
-      with open(filename, "rb") as f:
-        #f = open(filename[1:], "rb")
-        file_1 = f.read()
+      f = open(filename[1:], "rb")
+      file_1 = f.read()
       
       #fill in end
       
@@ -56,16 +55,16 @@ def webServer(port=13331):
  
       #Fill in end
                
-      #for i in file_1: #for line in file
+      for i in file_1: #for line in file
       #Fill in start - append your html file contents 
-      outputdata += file_1
+        outputdata += i
       
       #Fill in end 
         
       #Send the content of the requested file to the client (don't forget the headers you created)!
       # Fill in start
 
-      connectionSocket.sendall(outputdata)
+      connectionSocket.sendall(outputdata.encode())
 
       # Fill in end
         
