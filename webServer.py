@@ -28,7 +28,7 @@ def webServer(port=13331):
     try:
       #Fill in start -a client is sending you a message   
       
-      message = connectionSocket.recv(1024).decode()
+      message = connectionSocket.recv(1024)
       
       # #Fill in end 
       
@@ -74,8 +74,6 @@ def webServer(port=13331):
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
       #Fill in start
-      message = connectionSocket.recv(1024)
-      filename = message.split()[1]
       outputdata = b"HTTP/1.1 400 Not Found\r\nServer: Apache\r\n Content-Type: text/html; charset=UTF-8\r\nKeep-Alive: timeout=5, max=1000\r\nConnection: Keep-Alive\r\n\r\n"
       connectionSocket.sendall(outputdata)
       
