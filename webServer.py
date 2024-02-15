@@ -29,7 +29,7 @@ def webServer(port=13331):
     try:
       #Fill in start -a client is sending you a message   
       
-      message = connectionSocket.recv(1024).decode()
+      message = connectionSocket.recv(1024)
       
       #Fill in end 
       
