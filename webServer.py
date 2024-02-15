@@ -29,7 +29,7 @@ def webServer(port=13331):
     try:
       #Fill in start -a client is sending you a message   
       
-      message = connectionSocket.recv(1024)
+      message = connectionSocket.recv(1024).decode()
       
       #Fill in end 
       
@@ -65,7 +65,7 @@ def webServer(port=13331):
       #Send the content of the requested file to the client (don't forget the headers you created)!
       # Fill in start
 
-        connectionSocket.sendall(outputdata)
+      connectionSocket.sendall(outputdata)
 
       # Fill in end
         
