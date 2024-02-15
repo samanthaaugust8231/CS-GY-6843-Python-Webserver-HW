@@ -12,7 +12,7 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-  serverSocket.listen( )
+  serverSocket.listen(2)
   #Fill in end
 
   while True:
@@ -55,10 +55,10 @@ def webServer(port=13331):
  
       #Fill in end
                
-      for i in f: #for line in file
+      for i in file_1: #for line in file
       #Fill in start - append your html file contents 
       
-        outputdata += i.encode
+        outputdata += i
       
       #Fill in end 
         
