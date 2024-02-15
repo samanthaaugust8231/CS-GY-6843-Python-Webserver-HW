@@ -56,9 +56,9 @@ def webServer(port=13331):
  
       #Fill in end
                
-      for i in file_1: #for line in file
+      #for i in file_1: #for line in file
       #Fill in start - append your html file contents 
-        outputdata += i
+      outputdata += file_1
       
       #Fill in end 
         
