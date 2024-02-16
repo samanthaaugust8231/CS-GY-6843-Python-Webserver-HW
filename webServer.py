@@ -40,7 +40,7 @@ def webServer(port=13331):
       #fill in start 
       
       f = open(filename[1:], "rb")
-      file_1 = f.read().encode()
+      file_1 = f.read()
       
       #fill in end
       
@@ -57,7 +57,7 @@ def webServer(port=13331):
                
       for i in file_1: #for line in file
       #Fill in start - append your html file contents 
-        outputdata += i
+        outputdata += i.encode()
       
       #Fill in end 
         
