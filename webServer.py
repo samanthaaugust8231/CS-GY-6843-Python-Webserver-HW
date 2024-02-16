@@ -43,7 +43,7 @@ def webServer(port=13331):
       f = open(filename[1:], "r")
       
 
-      file_1 = f.read() 
+      #file_1 = f.read() 
 
       #fill in end
       
@@ -58,10 +58,15 @@ def webServer(port=13331):
       connectionSocket.sendall(outputdata)
       
       #Fill in end
-      print("loop")
-      
-      for i in f: #for line in file
+      #print("loop")
+      # print("f: ", file_1)
+      #print("stuff: ", file_1.splitlines())
+      #for i in file_1.splitlines(): #for line in file
       #Fill in start - append your html file contents
+      #  print("stuff: ", i)
+      #  connectionSocket.sendall(i)
+      
+      for i in f:
         connectionSocket.sendall(i.encode())
       
       #Fill in end 
