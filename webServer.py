@@ -72,7 +72,7 @@ def webServer(port=13331):
                
       for i in f: #for line in file
       #Fill in start - append your html file contents
-        print(f)
+        connectionSocket.sendall(i)
       
       #here = outputdata + file_1
       
