@@ -40,7 +40,7 @@ def webServer(port=13331):
       #fill in start 
       
       f = open(filename[1:], "rb")
-      file_1 = f.read()
+      file_1 = f.read().encode()
       
       #fill in end
       
