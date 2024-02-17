@@ -41,7 +41,7 @@ def webServer(port=13331):
       #fill in start 
       
       f = open(filename[1:], "r")
-      print("filename[1:]: ", filename[1:])
+      #print("filename[1:]: ", filename[1:])
       
 
       #fill in end
