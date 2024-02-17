@@ -67,7 +67,7 @@ def webServer(port=13331):
       #  connectionSocket.sendall(i)
       
       for i in f:
-        connectionSocket.sendall(i)
+        connectionSocket.send(i.encode())
       
       #Fill in end 
         
