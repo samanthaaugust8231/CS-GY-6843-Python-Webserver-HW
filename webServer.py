@@ -43,8 +43,6 @@ def webServer(port=13331):
       f = open(filename[1:], "r")
       
 
-      #file_1 = f.read() 
-
       #fill in end
       
       #This variable can store the headers you want to send for any valid or invalid request.   What header should be sent for a response that is ok?    
@@ -54,20 +52,15 @@ def webServer(port=13331):
       outputdata = b"HTTP/1.1 200 OK\r\nServer: Apache\r\nContent-Type: text/html; charset=UTF-8\r\nKeep-Alive: timeout=5, max=1000\r\nConnection: Keep-Alive\r\n\r\n"
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
+      file_1 = f.read()
       
-      connectionSocket.sendall(outputdata)
+      connectionSocket.sendall(outputdata + file_1)
       
       #Fill in end
-      #print("loop")
-      # print("f: ", file_1)
-      #print("stuff: ", file_1.splitlines())
-      #for i in file_1.splitlines(): #for line in file
-      #Fill in start - append your html file contents
-      #  print("stuff: ", i)
-      #  connectionSocket.sendall(i)
       
-      for i in f:
-        connectionSocket.sendall(i)
+      #for i in f:
+      #  print(i.encode())
+        #connectionSocket.send(i.encode())
       
       #Fill in end 
         
@@ -79,13 +72,10 @@ def webServer(port=13331):
         
       connectionSocket.close() #closing the connection socket
       
-      #print("11")
-      
     except Exception as e:
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
       #Fill in start
-      #print("12")
       outputdata = b"HTTP/1.1 404 ok\r\nServer: Apache\r\nContent-Type: text/html; charset=UTF-8\r\nKeep-Alive: timeout=5, max=1000\r\nConnection: Keep-Alive\r\n\r\n"
       connectionSocket.sendall(outputdata)
       
