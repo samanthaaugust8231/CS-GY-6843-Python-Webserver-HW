@@ -29,7 +29,7 @@ def webServer(port=13331):
     try:
       #Fill in start -a client is sending you a message   
     
-      message = connectionSocket.recv(1024).decode()
+      message = connectionSocket.recv(1024)
       
       
       #Fill in end 
@@ -40,7 +40,8 @@ def webServer(port=13331):
       #Plenty of guidance online on how to open and read a file in python. How should you read it though if you plan on sending it through a socket?
       #fill in start 
       
-      f = open(filename[1:], "rb")
+      f = open(filename[1:], "r")
+      print("filename[1:]: ", filename[1:])
       
 
       #fill in end
@@ -59,6 +60,7 @@ def webServer(port=13331):
       #Fill in end
       
       for i in f:
+        #print(i.encode())
         connectionSocket.send(i.encode())
       
       #Fill in end 
